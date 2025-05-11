@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <title>Quiz Patente | Quiz</title>
+    
+</head>
+<body>
+    
+    <main id="quiz-page">
+        <div class="navbar">
+            <div class="start">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="title">Domanda 1 di 30</span>
+            </div>
+            <div class="end">
+                <i class="fa-solid fa-clock"></i>
+                <span class="timer">30:00</span>
+            </div>
+        </div>
+
+        <div class="answer-done">
+            
+               
+        </div>
+        
+        <div class="quiz-card">
+            <div class="image">
+                <img src="src/api/img_sign/1.png" alt="">
+            </div>
+            <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugit tempore ea excepturi optio sequi commodi quibusdam?</span>
+        </div>
+
+        <div class="answers">
+            <button class="answer-btn true" onclick="selectAnswer(true)">Vero</button>
+            <button class="answer-btn false" onclick="selectAnswer(false)">Falso</button>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-prev" onclick="prevQuestion()"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="btn btn-next" onclick="nextQuestion()">Prossima domanda <i class="fa-solid fa-arrow-right"></i></button>
+
+        </div>
+    </main>
+
+    
+
+<script src="src/script/utils.js"></script>
+<script src="src/script/classi.js"></script>
+<script src="src/script/quiz.js"></script>
+<script src="src/script/main.js"></script>
+</body>
+</html>

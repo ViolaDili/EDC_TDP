@@ -1,0 +1,269 @@
+@import url(fonts.css);
+@import url(variables.css);
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    width: 700px;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+main .top-logo{
+    width: 400px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+main .top-logo .title{
+    font-weight: 600;
+    font-size: 30px;
+}
+
+main .home-card{
+    width: 100%;
+    height: 200px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    gap: 30px;
+    border: 2px solid var(--border-color);
+}
+
+
+main .home-card .icon{
+    width: 150px;
+    height: 150px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: white;
+}
+
+main .home-card .text{
+    width: 400px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main .home-card .text .title{
+    font-weight: 600;
+    font-size: 23px;
+}
+
+main .home-card .text .desc{
+    font-weight: 400;
+    font-size: 19px;
+}
+
+
+main .tags{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+    gap: 50px;
+}
+
+main .tags .tag{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding-inline: 20px;
+    color: var(--primary-color);
+    font-weight: 600;
+    border: 2px solid var(--border-color);
+}
+
+main .btn{
+    width: 100%;
+    height: 60px;
+    font-weight: 600;
+    font-size: 20px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+}
+
+#quiz-page{
+    width: 900px;
+}
+
+#quiz-page .buttons{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+#quiz-page .buttons .btn-next{
+    flex: 1;
+    margin-inline: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#quiz-page .buttons .btn-next.end{
+    border: 2px solid var(--primary-color) !important; 
+    background-color: transparent !important;
+    color: var(--primary-color);
+}
+
+#quiz-page .buttons .btn-prev{
+    width: 60px;
+    margin-inline: 10px;
+    color: var(--primary-color);
+    background-color: var(--border-color);
+}
+
+#quiz-page .answers{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    margin-block: 10px;
+}
+
+#quiz-page .answers .answer-btn{
+    flex: 1;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    background-color: transparent;
+    font-weight: 500;
+}
+
+#quiz-page .answers .answer-btn.sel{
+    border:  2px solid var(--primary-color);
+}
+
+#quiz-page .navbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    align-items: center;
+}
+
+#quiz-page .navbar .start{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 19px;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+#quiz-page .navbar .end{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 19px;
+    font-weight: 500;
+    margin-right: 20px;
+}
+
+#quiz-page .quiz-card{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    margin-block: 20px;
+}
+
+#quiz-page .quiz-card .image{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+}
+
+#quiz-page .quiz-card .image img{
+    max-width: 400px;
+    max-height: 180px;
+}
+
+#quiz-page .quiz-card .text{
+    flex: 1;
+    height: 100%;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#quiz-page .answer-done{
+    width: 100%;
+    height: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#quiz-page .answer-done .check{
+    width: 23px;
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#quiz-page .answer-done .check:hover{
+    transform: scale(1.08);
+}
+
+#quiz-page .answer-done .check.pass{
+    background-color: orange;
+    box-shadow: 0px 0px 0px 2px orange;
+}
+
+#quiz-page .answer-done .check.sel{
+    background-color: var(--primary-color);
+}
