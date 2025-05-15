@@ -159,8 +159,17 @@ function terminaQuiz() {
         }  
     }
 
+
+    console.log(domandeSbagliate);
+    
+
     
 
     console.log((30-(domandeSbagliate.length)) + " / " + 30);
     
+}
+
+function exitQuiz() {
+    if(!confirm("Sei sicuro di voler uscire?")) return
+    window.location.href = "../"
 }

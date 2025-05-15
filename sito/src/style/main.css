@@ -117,6 +117,7 @@ main .btn{
     background-color: var(--primary-color);
     color: white;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 #quiz-page{
@@ -169,6 +170,7 @@ main .btn{
     border: 2px solid var(--border-color);
     background-color: transparent;
     font-weight: 500;
+    cursor: pointer;
 }
 
 #quiz-page .answers .answer-btn.sel{
@@ -195,6 +197,21 @@ main .btn{
     font-size: 19px;
     font-weight: 500;
     margin-left: 20px;
+}
+
+#quiz-page .navbar .start i{
+    cursor: pointer;
+    /* background-color: red; */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#quiz-page .navbar .start i:hover{
+    background-color: rgba(0, 0, 0, 0.082);
 }
 
 #quiz-page .navbar .end{
