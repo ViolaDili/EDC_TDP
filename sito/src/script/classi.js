@@ -83,3 +83,16 @@ class Punteggio{
     }
 
 }
+
+
+class Correttore{
+    constructor(){
+    }
+
+    static async getCorrezioni() {
+        console.log("ciao");
+        
+    }
+}
+
+Correttore.getCorrezioni()
