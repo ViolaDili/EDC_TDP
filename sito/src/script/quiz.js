@@ -138,7 +138,7 @@ function setButton() {
         endQuiz = true
     } 
     else if (indice == 29 && endQuiz == true){
-        terminaQuiz()
+        terminaQuiz(true)
     }
     else {
         btn.innerHTML = `Prossima domanda <i class="fa-solid fa-arrow-right"></i>`
@@ -147,11 +147,11 @@ function setButton() {
 }
 
 
-function terminaQuiz() {
+async function terminaQuiz(askPermission) {
     const domande = quiz.domande
     let domandeSbagliate = []
 
-    if(!confirm("Sei sicuro di voler terminare il quiz?")) return
+    if(askPermission && !confirm("Sei sicuro di voler terminare il quiz?")) return
 
     for (const domanda of domande) {
         if (!domanda.isCorrect()){
@@ -161,15 +161,52 @@ function terminaQuiz() {
 
 
     console.log(domandeSbagliate);
-    
 
-    
+    setErrors(domandeSbagliate)
 
     console.log((30-(domandeSbagliate.length)) + " / " + 30);
+
+    changePage(1,2)
+    
+
     
 }
 
 function exitQuiz() {
     if(!confirm("Sei sicuro di voler uscire?")) return
     window.location.href = "../"
+}
+
+const PASSED_MESSAGES = ["Bravo, hai superato il quiz", "Sei pronto per affrontare l’esame teorico della patente!"]
+const FAIL_MESSAGES = ["Non hai superato il quiz", "Non sei pronto per affrontare l’esame teorico della patente, studia!"]
+
+function setErrors(errors) {
+    let result = ``
+    let error_amount = errors.length
+
+    const title = document.querySelector("#result-title")
+    const desc = document.querySelector("#result-desc")
+    const point = document.querySelector("#result-point")
+
+    if(error_amount <= 3){
+        title.innerHTML = PASSED_MESSAGES[0]
+        desc.innerHTML = PASSED_MESSAGES[1]
+    } else {
+        title.innerHTML = FAIL_MESSAGES[0]
+        desc.innerHTML = FAIL_MESSAGES[1]
+    }
+
+    point.innerHTML = `Hai totalizzato ${error_amount} errori su un massimo di 3`
+
+    const errors_container = document.querySelector(".error-list")
+    errors.forEach(error => {
+        result += `
+            <div class="error">
+            <div class="image"><img src="${error.img !== null ? ("src/api"+error.img) : "src/assets/img/think.png"}" /></div>
+            <span class="text">${error.text}</span>
+            <div class="answer">${error.correctAnswer === true ? "È Vero, non falso.." : "È Falso, non vero.."}</div>
+            </div>
+        `
+    });
+    errors_container.innerHTML += result
 }
