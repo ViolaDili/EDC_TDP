@@ -160,6 +160,9 @@ async function terminaQuiz(askPermission) {
     }
 
 
+
+
+
     console.log(domandeSbagliate);
 
     setErrors(domandeSbagliate)
@@ -167,6 +170,9 @@ async function terminaQuiz(askPermission) {
     console.log((30-(domandeSbagliate.length)) + " / " + 30);
 
     changePage(1,2)
+
+    document.title = `Revisione | Patentati.info`
+
     
 
     
