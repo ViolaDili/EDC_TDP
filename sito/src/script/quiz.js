@@ -171,6 +171,9 @@ async function terminaQuiz(askPermission) {
 
     changePage(1,2)
 
+    
+    clearInterval(countdown);
+
     document.title = `Revisione | Patentati.info`
 
     
