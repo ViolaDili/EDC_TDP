@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/style/main.css">
+    <link rel="stylesheet" href="src/style/responsive/quiz.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-    <title>Quiz Patente | Quiz</title>
+    <link rel="icon" type="image/png" href="src/assets/img/logo.png" />
+    <title>Quiz | Patentati</title>
     
 </head>
 <body>
     
     <main id="quiz-page">
-        <div class="navbar">
+        <div class="navbar" id="pg-1">
             <div class="start">
                 <i class="fa-solid fa-arrow-left" onclick="exitQuiz()"></i>
                 <span class="title">Domanda 1 di 30</span>
@@ -24,31 +26,67 @@
             </div>
         </div>
 
-        <div class="answer-done">
+        <div class="answer-done" id="pg-1">
             
                
         </div>
         
-        <div class="quiz-card">
+        <div class="quiz-card" id="pg-1">
             <div class="image">
                 <img src="src/api/img_sign/1.png" alt="">
             </div>
             <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugit tempore ea excepturi optio sequi commodi quibusdam?</span>
         </div>
 
-        <div class="answers">
+        <div class="answers" id="pg-1">
             <button class="answer-btn true" onclick="selectAnswer(true)">Vero</button>
             <button class="answer-btn false" onclick="selectAnswer(false)">Falso</button>
         </div>
 
-        <div class="buttons">
+        <div class="buttons" id="pg-1">
             <button class="btn btn-prev" onclick="prevQuestion()"><i class="fa-solid fa-arrow-left"></i></button>
             <button class="btn btn-next" onclick="nextQuestion()">Prossima domanda <i class="fa-solid fa-arrow-right"></i></button>
 
         </div>
+
+        <div class="top-logo" id="pg-2" style="margin-top: 50px;">
+            <img src="src/assets/img/logo.png" class="logo" alt="Logo">
+            <span class="title">Patentati.info</span>
+        </div>
+
+        <div class="home-card" style="text-align: center; padding-block: 30px;" id="pg-2">
+            <div class="text" style="gap:30px">
+                <span class="title" id="result-title">Bravo, hai superato il quiz</span>
+                <span class="desc" id="result-desc">Sei pronto per affrontare l’esame teorico della patente!</span>
+                <span class="desc" id="result-point">Hai totalizzato 2 errori su un massimo di 3</span>
+            </div>
+        </div>
+
+        <div class="error-section" id="pg-2">
+            <span class="title">Errori</span>
+            <div class="error-list">
+                <!-- <div class="error">
+                    <div class="image"></div>
+                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nihil, minus voluptates incidunt quaerat, numquam vero ex libero ut modi odio temporibus at labore voluptate porro nisi nemo a tenetur.</span>
+                    <div class="answer">VERO</div>
+                </div> -->
+                
+                
+            </div>
+        </div>
+
+        <button id="pg-2" class="btn btn-return" style="margin-bottom: 30px; display: flex; align-items: center; justify-content: center;" onclick="window.location.href = '../'">RITORNA ALLA HOME</button>
     </main>
 
-    
+
+    <footer id="pg-2">
+        <span class="line">Progetto di fine anno - TDP</span>
+        <span class="line">Realizzato da <a href="#">Viola Diliberto</a>, <a href="https://lucatruglia.it">Luca Truglia</a>, <a href="#">Alessia Medina</a></span>
+        <span class="line">Classe 4C - ITIS Leonardo Da Vinci (PR)</span>
+        <span class="line disclaimer">Sito realizzato a scopo scolastico - Nessun contenuto commerciale</span>
+    </footer>
+
+
 
 <script src="src/script/utils.js"></script>
 <script src="src/script/classi.js"></script>

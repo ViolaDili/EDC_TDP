@@ -32,9 +32,31 @@ let countdown = setInterval(function() {
   let seconds = timeLeft % 60;
   
     document.querySelector(".timer").innerHTML = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+    document.title = `${minutes}:${seconds < 10 ? '0' : ''}${seconds} | Patentati.info`
 
   if (--timeLeft < 0) {
     clearInterval(countdown);
-    alert("Il tempo è scaduto!");
+    alert("TEMPO SCADUTO")
+    terminaQuiz(false)
   }
 }, 1000);
+
+
+function changePage(to,at) {
+    console.log(`To: ${to}; At: ${at}`);
+    
+    const to_elements = document.querySelectorAll(`#pg-${to}`)
+    const at_elements = document.querySelectorAll(`#pg-${at}`)
+
+    to_elements.forEach(el => {
+        el.style.display = "none"
+    });
+
+    at_elements.forEach(el => {
+        el.style.display = "flex"
+    });
+    
+}
+
+
+changePage(2,1)

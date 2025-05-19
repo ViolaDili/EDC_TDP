@@ -66,20 +66,3 @@ class Quiz{
 
 }
 
-class Punteggio{
-    constructor(){
-        this.punteggio = 0;
-        this.domandeTotali = 30;
-        this.risposteCorrette = 0;
-    }
-
-    rispostaCorretta(){
-        this.risposteCorrette++;
-        this.punteggio++
-    }
-
-    getPunteggio(){
-        return this.punteggio;
-    }
-
-}

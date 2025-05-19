@@ -1,0 +1,52 @@
+@media screen and (max-width: 645px){
+    main .home-card .icon{
+        display: none;
+    }
+    main .home-card{
+        text-align: center;
+    }
+
+    
+    main .home-card .text{
+        gap: 15px;
+    }
+    main .home-card .text .title {
+        font-size: 20px;
+        margin-inline: 20px;
+    }
+
+     main .home-card .text .desc {
+        font-size: 18px;
+        margin-inline: 20px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    footer .line{
+        margin-inline: 20px;
+    }
+}
+
+@media screen and (max-width: 435px){
+
+    main .home-card{
+        height: 165px;
+    }
+
+
+    main .top-logo{
+        width: 90%;
+        flex-direction: column;
+    }
+
+    main .top-logo .logo{
+        width: 100px;
+    }
+
+
+    footer .line{
+        font-size: 13px;
+    }
+}
+
+
