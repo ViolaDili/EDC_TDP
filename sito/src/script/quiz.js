@@ -1,4 +1,5 @@
 const allQuestions = [];
+const quiz = new Quiz()
 
 for (let i = 0; i<30; i++) {
     document.querySelector(".answer-done").innerHTML += `<div class="check" id="check${i}"></div>`
@@ -41,7 +42,6 @@ allMarks.forEach(mark => {
 });
 
 
-const quiz = new Quiz()
 
 function setQuestions() {
     const randomIndices = getRandomIndices(30)

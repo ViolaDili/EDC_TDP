@@ -24,7 +24,6 @@ class Quiz{
         this.domande = [];
         this.risposteSbagliate = [];
 
-        this.punteggio = new Punteggio()
     }
 
     add(domanda){
