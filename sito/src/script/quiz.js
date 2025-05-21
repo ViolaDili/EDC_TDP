@@ -1,13 +1,14 @@
-const allQuestions = [];
-const quiz = new Quiz()
+const allQuestions = [];        // Array che conterrà tutte le domande estratte dal file JSON.
+const quiz = new Quiz()         // Istanza della classe Quiz che gestisce lo stato e le domande del quiz corrente.
 
 for (let i = 0; i<30; i++) {
     document.querySelector(".answer-done").innerHTML += `<div class="check" id="check${i}"></div>`
 }
 
-const allMarks = document.querySelectorAll(".answer-done .check")
+const allMarks = document.querySelectorAll(".answer-done .check") // NodeList contenente tutti gli elementi HTML che rappresentano i segnatori di domanda (i "check").
 
 
+// Chiamata alla funzione asyncrona per prendere i dati dal file json delle domande
 fetchJson('src/api/quizPatenteB2023.json').then(jsonData => {
     if (!jsonData) return;
     function extractQuestions(obj) {
@@ -29,10 +30,14 @@ fetchJson('src/api/quizPatenteB2023.json').then(jsonData => {
     }
 
     extractQuestions(jsonData);
-
     setQuestions() 
 });
 
+
+/*
+    Imposta l'evento di click a tutti i segnatori di domanda 
+    in modo tale da poter cambiare indice di domanda in base al loro id
+*/
 allMarks.forEach(mark => {
     mark.addEventListener("click", () => {
         const i = Number(mark.id.split("check")[1])
@@ -42,8 +47,10 @@ allMarks.forEach(mark => {
 });
 
 
-
-
+/*
+    setQuestions()
+    Prende casualmente 30 domande e le pusha nella lista delle domande della classe quiz con il metodo add
+*/
 function setQuestions() {
     const randomIndices = getRandomIndices(30)
     randomIndices.forEach(index => {
@@ -54,6 +61,13 @@ function setQuestions() {
     selectMark(quiz.indice)
 }
 
+
+/*
+    setDomandaOnScreen()
+    Si occupa di impostare a schermo il testo e l'immagine della domanda attuale
+    Come? utlizzando innerHtml e img.src
+    Chiama la seguente funzione: setInputAnswer
+*/
 function setDomandaOnScreen() {
     let domanda = quiz.getDomanda()
     const img = document.querySelector(".quiz-card .image img")
@@ -74,13 +88,23 @@ function setDomandaOnScreen() {
     setInputAnswer()
 }
 
+
+/*
+    setQuestion(index)
+    nextQuestion()
+    prevQuestion()
+    -------------------------
+    Si occupano di cambiare domanda del quiz in base all'interazione dell'utente
+    Chiamando le seguente funzioni: setDomandaOnScreen, selectMark, setButton
+    E i metodi principali di quiz per il cambio domanda
+*/
+
 function setQuestion(index) {
     quiz.setIndice(index)
     setDomandaOnScreen()
     selectMark(index)
     setButton()
 }
-
 
 function nextQuestion() {
     quiz.next()
@@ -96,9 +120,13 @@ function prevQuestion() {
     setButton()
 }
 
+/*
+    selectMark(indice)
+    Evidenzia sullo schermo la domanda attualmente selezionata,
+    aggiungendo o rimuovendo la classe "pass" ai relativi indicatori.
+*/
 function selectMark(indice) {
     allMarks.forEach(mark => {
-
         if(Number(mark.id.split("check")[1]) == indice){
             mark.classList.add("pass")
         } else {
@@ -108,6 +136,11 @@ function selectMark(indice) {
     });
 }
 
+/*
+    setInputAnswer()
+    Si occupa di far visualizzare a schermo lo stato di risposta alla domanda [True | False]
+    Come? Togliendo e aggiungendo la classe "sel"
+*/
 function setInputAnswer() {
     let userInput = quiz.getDomanda().userAnswer
     if (userInput == null){
@@ -121,6 +154,14 @@ function setInputAnswer() {
     
 }
 
+
+/*
+    selectAnswer(answer)
+    --------------------------
+    Gestisce la selezione della risposta da parte dell'utente.
+    Aggiorna la visualizzazione dei bottoni di risposta e salva la risposta dell'utente nella domanda corrente.
+    Segna la domanda come risolta nella barra di avanzamento.
+*/
 function selectAnswer(answer) {
     document.querySelector(`.answers .answer-btn.${answer}`).classList.add("sel")
     document.querySelector(`.answers .answer-btn.${!answer}`).classList.remove("sel")
@@ -131,6 +172,13 @@ function selectAnswer(answer) {
 
 let endQuiz = false;
 
+
+/*
+    setButton()
+    --------------------------
+    Aggiorna il testo e il comportamento del pulsante "Prossima domanda"/"Termina il quiz" in base all'indice della domanda corrente.
+    Se si è all'ultima domanda, permette di terminare il quiz.
+*/
 function setButton() {
     let indice = quiz.indice
     let btn = document.querySelector(".buttons .btn-next")
@@ -148,6 +196,15 @@ function setButton() {
 }
 
 
+
+/*
+    terminaQuiz(askPermission)
+    --------------------------
+    Si occupa di terminare il quiz, mostrare la revisione degli errori e cambiare pagina.
+    Se askPermission è true, chiede conferma all'utente prima di terminare.
+    Raccoglie tutte le domande sbagliate e le passa a setErrors per la revisione.
+    Ferma il timer e aggiorna il titolo della pagina.
+*/
 async function terminaQuiz(askPermission) {
     const domande = quiz.domande
     let domandeSbagliate = []
@@ -160,28 +217,22 @@ async function terminaQuiz(askPermission) {
         }  
     }
 
-
-
-
-
-    console.log(domandeSbagliate);
-
     setErrors(domandeSbagliate)
-
-    console.log((30-(domandeSbagliate.length)) + " / " + 30);
-
     changePage(1,2)
-
-    
     clearInterval(countdown);
 
     document.title = `Revisione | Patentati.info`
-
-    
-
-    
 }
 
+
+
+
+/*
+    exitQuiz()
+    --------------------------
+    Gestisce l'uscita anticipata dal quiz.
+    Chiede conferma all'utente e, se confermato, reindirizza alla pagina principale.
+*/
 function exitQuiz() {
     if(!confirm("Sei sicuro di voler uscire?")) return
     window.location.href = "../"
@@ -190,6 +241,14 @@ function exitQuiz() {
 const PASSED_MESSAGES = ["Bravo, hai superato il quiz", "Sei pronto per affrontare l’esame teorico della patente!"]
 const FAIL_MESSAGES = ["Non hai superato il quiz", "Non sei pronto per affrontare l’esame teorico della patente, studia!"]
 
+
+/*
+    setErrors(errors)
+    --------------------------
+    Mostra a schermo il risultato del quiz e la lista delle domande sbagliate.
+    Aggiorna titolo, descrizione e punteggio in base al numero di errori.
+    Per ogni errore, aggiunge un elemento alla lista con immagine, testo e risposta corretta.
+*/
 function setErrors(errors) {
     let result = ``
     let error_amount = errors.length

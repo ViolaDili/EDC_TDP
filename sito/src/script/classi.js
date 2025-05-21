@@ -1,3 +1,8 @@
+/*
+    Domanda
+    --------------------------
+    Rappresenta una singola domanda del quiz, con testo, immagine, risposta corretta e risposta data dall'utente.
+*/
 class Domanda{
     constructor(text, img, correctAnswer){
         this.text = text;
@@ -18,6 +23,12 @@ class Domanda{
 
 }
 
+
+/*
+    Quiz
+    --------------------------
+    Gestisce la logica e lo stato del quiz, mantiene la lista delle domande e l'indice della domanda corrente.
+*/
 class Quiz{
     constructor(){
         this.indice = 0;
@@ -46,9 +57,6 @@ class Quiz{
             return
         }
         this.indice++
-
-        console.log(this.domande[this.indice]);
-        
     }
 
     prev(){
@@ -56,9 +64,6 @@ class Quiz{
             return
         }
         this.indice--
-
-        console.log(this.domande[this.indice]);
-
     }
 
 
