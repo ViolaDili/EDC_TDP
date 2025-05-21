@@ -43,6 +43,7 @@ allMarks.forEach(mark => {
 
 
 
+
 function setQuestions() {
     const randomIndices = getRandomIndices(30)
     randomIndices.forEach(index => {

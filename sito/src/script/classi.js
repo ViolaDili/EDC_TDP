@@ -23,7 +23,6 @@ class Quiz{
         this.indice = 0;
         this.domande = [];
         this.risposteSbagliate = [];
-
     }
 
     add(domanda){
