@@ -8,7 +8,7 @@
 ## 👨‍💻 Team di sviluppo
 
 *   **Luca Tuglia** – Frontend & Design
-*   **Viola Di Liberto** – Progettazione
+*   **Viola Di Liberto** – Design & Progettazione
 *   **Alessia Medina** – Progettazione
 
 ## 🚀 Tecnologie utilizzate
